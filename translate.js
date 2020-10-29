@@ -1,6 +1,6 @@
 let input = document.querySelector('#input');
 let searchBtn = document.querySelector('#search');
-let apiKey='21198feb-d830-4f66-8917-ab140ed61338';
+let apiKey='be95d14b-5f84-42e9-95e7-9fc753306107';
 let notFound= document.querySelector('.notfound');
 let defBox=document.querySelector('.def');
 let loading = document.querySelector('.loading');
@@ -47,10 +47,12 @@ getData(word);
 async function getData(word) {
     loading.style.display='block';
 //call api
-const response=await fetch(`https://www.dictionaryapi.com/api/v3/references/
-learners/json/${word}?key=${apiKey}`);
+
+const response=await fetch(`https://dictionaryapi.com/api/v3/references/
+spanish/json/${word}?key=${apiKey}`);
 const data=await response.json();
 //empty result
+console.log(data);
 if(!data.length){
     loading.style.display='none';
     notFound.innerText='no result';
